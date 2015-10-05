@@ -6,14 +6,36 @@ li {
 }
 
 span.taskView {
+    outline: 1px solid red;
+    outline-offset: 2px;
     text-align: center;
     display: inline-block;
     width: 200px;
+    margin: 3px;
 }
 
 span.doneView {
+    outline: 1px solid green;
+    outline-offset: 2px;
     text-align: center;
     text-decoration: line-through;
     display: inline-block;
-    width: 260px;
+    width: 200px;
+    margin: 3px;
 }
+
+.controller {
+    /*outline: 10px solid #80715C;*/
+    /*outline-offset: 5px;*/
+    margin: 50px auto;
+    padding: 20px;
+    font-size:18px;
+    border-width:5px;
+    border-radius:12px;
+    border-style: double;
+    border-color:#999999;
+    box-shadow: 0px 0px 30px 0px #999999;
+    width: 500px;
+    background-color: #cde;
+}
+
