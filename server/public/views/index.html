@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!--<link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="/assets/stylesheets/style.css">
+    <script src="/vendor/angular/angular.min.js"></script>
+    <script src="/assets/scripts/app.min.js"></script>
+</head>
+<body>
+    <div ng-controller="todoController">
+        <div>
+            <h1>JV's Todo List</h1>
+            <form id="input-todo" ng-submit="addTodo()">
+                <input id="new-todo" size="40" placeholder="Enter a new todo..." ng-model="newTodo" autofocus>
+                <button type="submit" ng-click="reset()">Add</button><br>
+                <label><input type="radio" ng-model="dueDate" value="Today" checked="checked"/> Today</label>
+                <label><input type="radio" ng-model="dueDate" value="Tomorrow"/> Tomorrow</label>
+                <label><input type="radio" ng-model="dueDate" value="Later"/> Sometime later...</label><br>
+            </form>
+        </div>
+        <div>
+            <h4>Today</h4>
+            <ul class="tasksToday">
+                <li ng-repeat="task in todayArray track by $index"><button ng-click="doneToday(task)">Done</button>{{task}}<button ng-click="deleteTaskToday(task)">Delete</button></li>
+                <li ng-style="{'text-decoration': 'line-through'}" ng-repeat="done in doneTodayArray track by $index">{{done}}</li>
+            </ul>
+        </div>
+        <div>
+            <h4>Tomorrow</h4>
+            <ul class="tasksTomorrow>">
+                <li ng-repeat="task in tomorrowArray track by $index"><button ng-click="doneTomorrow(task)">Done</button>{{task}}<button ng-click="deleteTaskTomorrow()">Delete</button></li>
+                <li ng-style="{'text-decoration': 'line-through'}" ng-repeat="done in doneTomorrowArray track by $index">{{done}}</li>
+            </ul>
+        </div>
+        <div>
+            <h4>Later...</h4>
+            <ul class="tasksLater">
+                <li ng-repeat="task in laterArray track by $index"><button ng-click="doneLater(task)">Done</button>{{task}}<button ng-click="deleteTaskLater()">Delete</button></li>
+                <li ng-style="{'text-decoration': 'line-through'}" ng-repeat="done in doneLaterArray track by $index">{{done}}</li>
+            </ul>
+        </div>
+        <div>
+            <button type="submit" ng-click="newDay()">Start New Day</button>
+        </div>
+    </div>
+</body>
+
+</html>
