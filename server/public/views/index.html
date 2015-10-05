@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <!--<link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/stylesheets/style.css">
     <script src="/vendor/angular/angular.min.js"></script>
     <script src="/assets/scripts/app.min.js"></script>
@@ -23,22 +23,22 @@
         <div>
             <h4>Today</h4>
             <ul class="tasksToday">
-                <li ng-repeat="task in todayArray track by $index"><button ng-click="doneToday(task)">Done</button>{{task}}<button ng-click="deleteTaskToday(task)">Delete</button></li>
-                <li ng-style="{'text-decoration': 'line-through'}" ng-repeat="done in doneTodayArray track by $index">{{done}}</li>
+                <li ng-repeat="task in todayArray track by $index"><button ng-click="doneToday(task)"><span class="glyphicon glyphicon-ok"></span></button><span class="taskView">{{task}}</span><button ng-click="deleteTaskToday(task)"><span class="glyphicon glyphicon-remove"></span></button></li>
+                <li ng-repeat="done in doneTodayArray track by $index"><span class="doneView">{{done}}</span></li>
             </ul>
         </div>
         <div>
             <h4>Tomorrow</h4>
             <ul class="tasksTomorrow>">
-                <li ng-repeat="task in tomorrowArray track by $index"><button ng-click="doneTomorrow(task)">Done</button>{{task}}<button ng-click="deleteTaskTomorrow()">Delete</button></li>
-                <li ng-style="{'text-decoration': 'line-through'}" ng-repeat="done in doneTomorrowArray track by $index">{{done}}</li>
+                <li ng-repeat="task in tomorrowArray track by $index"><button ng-click="doneTomorrow(task)"><span class="glyphicon glyphicon-ok"></span></button><span class="taskView">{{task}}</span><button ng-click="deleteTaskTomorrow()"><span class="glyphicon glyphicon-remove"></span></button></li>
+                <li ng-repeat="done in doneTomorrowArray track by $index"><span class="doneView">{{done}}</span></li>
             </ul>
         </div>
         <div>
             <h4>Later...</h4>
             <ul class="tasksLater">
-                <li ng-repeat="task in laterArray track by $index"><button ng-click="doneLater(task)">Done</button>{{task}}<button ng-click="deleteTaskLater()">Delete</button></li>
-                <li ng-style="{'text-decoration': 'line-through'}" ng-repeat="done in doneLaterArray track by $index">{{done}}</li>
+                <li ng-repeat="task in laterArray track by $index"><button ng-click="doneLater(task)"><span class="glyphicon glyphicon-ok"></span></button><span class="taskView">{{task}}</span><button ng-click="deleteTaskLater()"><span class="glyphicon glyphicon-remove"></span></button></li>
+                <li ng-repeat="done in doneLaterArray track by $index"><span class="doneView">{{done}}</span></li>
             </ul>
         </div>
         <div>
