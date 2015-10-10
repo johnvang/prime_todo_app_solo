@@ -20,28 +20,28 @@
                 <label><input type="radio" ng-model="dueDate" value="Later"/> Sometime later...</label><br>
             </form>
         </div>
-        <div>
-            <h4>Today</h4>
+        <div class="today">
+            <h4>TODAY</h4>
             <ul class="tasksToday">
-                <li ng-repeat="task in todayArray track by $index"><button ng-click="doneToday(task)"><span class="glyphicon glyphicon-unchecked"></span></button><span class="taskView">{{task}}</span><button ng-click="deleteTaskToday(task)"><span class="glyphicon glyphicon-remove"></span></button></li>
-                <li ng-repeat="done in doneTodayArray track by $index"> <button><span class="glyphicon glyphicon-ok"></span></button><span class="doneView">{{done}}</span></li>
-            </ul>
+                <li ng-repeat="task in todayArray track by $index"><button class="doneButton" ng-click="doneToday(task)"><span class="glyphicon glyphicon-unchecked"></span></button><span class="taskView">{{task}}</span><button class="deleteButton" ng-click="deleteTaskToday(task)"><span class="glyphicon glyphicon-remove"></span></button></li>
+                <li ng-repeat="done in doneTodayArray track by $index"> <p><span class="glyphicon glyphicon-ok"></span><span class="doneView">{{done}}</span></p></li>
+
         </div>
-        <div>
-            <h4>Tomorrow</h4>
+        <div class="tomorrow">
+            <h4>TOMORROW</h4>
             <ul class="tasksTomorrow>">
-                <li ng-repeat="task in tomorrowArray track by $index"><button ng-click="doneTomorrow(task)"><span class="glyphicon glyphicon-unchecked"></span></button><span class="taskView">{{task}}</span><button ng-click="deleteTaskTomorrow()"><span class="glyphicon glyphicon-remove"></span></button></li>
-                <li ng-repeat="done in doneTomorrowArray track by $index"> <button><span class="glyphicon glyphicon-ok"></span></button><span class="doneView">{{done}}</span></li>
+                <li ng-repeat="task in tomorrowArray track by $index"><button class="doneButton" ng-click="doneTomorrow(task)"><span class="glyphicon glyphicon-unchecked"></span></button><span class="taskView">{{task}}</span><button class="deleteButton" ng-click="deleteTaskTomorrow()"><span class="glyphicon glyphicon-remove"></span></button></li>
+                <li ng-repeat="done in doneTomorrowArray track by $index"> <p><span class="glyphicon glyphicon-ok"></span><span class="doneView">{{done}}</span></p></li>
             </ul>
         </div>
-        <div>
-            <h4>Later...</h4>
+        <div class="later">
+            <h4>LATER...</h4>
             <ul class="tasksLater">
-                <li ng-repeat="task in laterArray track by $index"><button ng-click="doneLater(task)"><span class="glyphicon glyphicon-unchecked"></span></button><span class="taskView">{{task}}</span><button ng-click="deleteTaskLater()"><span class="glyphicon glyphicon-remove"></span></button></li>
-                <li ng-repeat="done in doneLaterArray track by $index"> <button><span class="glyphicon glyphicon-ok"></span></button><span class="doneView">{{done}}</span></li>
+                <li ng-repeat="task in laterArray track by $index"><button class="doneButton" ng-click="doneLater(task)"><span class="glyphicon glyphicon-unchecked"></span></button><span class="taskView">{{task}}</span><button class="deleteButton" ng-click="deleteTaskLater()"><span class="glyphicon glyphicon-remove"></span></button></li>
+                <li ng-repeat="done in doneLaterArray track by $index"> <p><span class="glyphicon glyphicon-ok"></span><span class="doneView">{{done}}</span></p></li>
             </ul>
         </div>
-        <div>
+        <div class="refreshButton">
             <button type="submit" ng-click="newDay()">Start New Day</button>
         </div>
     </div>

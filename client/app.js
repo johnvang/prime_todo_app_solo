@@ -23,6 +23,7 @@ app.controller("todoController", ['$scope', '$http', function($scope, $http){
         $scope.newTodo = "";
     };
 
+
     $scope.deleteTaskToday = function(task){
         var index = $scope.todayArray.indexOf(task);
         $scope.todayArray.splice(index,1);
