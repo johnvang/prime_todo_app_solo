@@ -1,56 +1,63 @@
 body {
-    background-color: #d17415;
+    background-color: white;
+    text-align: center;
+    font-family: 'Andale Mono', AndaleMono, monospace;
+    font-size: 16px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 18.5714px;
 }
 
 h1 {
+    font-weight: bold;
     text-align: center;
     margin-bottom: 20px;
 }
 
+#new-todo {
+    line-height: 20px;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+h4 {
+    text-decoration: underline;
+}
+
 li {
     list-style: none;
+    font-weight: bold;
 }
 
 ul {
     padding: 0px;
 }
 
-.myInput {
-    margin-bottom: 15px;
+.today {
+    color: #FF0606;
+}
+
+.tomorrow {
+    color: #162547
+}
+
+.later {
+    color: #2A4C9A
 }
 
 span.taskView {
-    /*outline: 1px solid red;*/
-    /*outline-offset: 2px;*/
-    text-align: left;
+
+    text-align: center;
     display: inline-block;
     width: 200px;
-    margin: 3px;
 }
 
 span.doneView {
-    /*outline: 1px solid green;*/
-    /*outline-offset: 2px;*/
-    text-align: left;
     text-decoration: line-through;
     display: inline-block;
     width: 200px;
-    margin-left: 34px;
-}
-
-.doneButton {
-    margin-right: 15px;
-    line-height: 1;
-    /*border-radius: 12px;*/
-}
-
-.deleteButton {
-    line-height: 1;
-}
-
-.doneCheck {
-    margin-right: 15px;
-    line-height: 1;
+    text-align: center
 }
 
 .refreshButton {
@@ -58,18 +65,16 @@ span.doneView {
 }
 
 .controller {
-    /*outline: 10px solid #80715C;*/
-    /*outline-offset: 5px;*/
     margin: 50px auto;
     padding: 20px;
     font-size:18px;
-    border: 5px;
+    border: 10px;
     border-radius:12px;
-    border-style: double;
+    border-style: dashed;
     border-color:#5b5962;
     box-shadow: 0px 0px 30px 0px #999999;
     width: 500px;
-    background-color: lightgray;
+    background-color: #FFFCED;
     font-color: #333;
 }
 
