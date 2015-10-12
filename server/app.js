@@ -1,9 +1,8 @@
 var express = require('express');
-
 var app = express();
-
-//var Todo = require("./models/todo");
-
+var Todo = require("./models/todo");
+var bodyParser = require("body-parser");
+app.use(bodyParser.json());
 //////////  CONNECT TO DATABASE  //////////////////
 var mongoose = require('mongoose');
 
@@ -29,56 +28,37 @@ app.post('/',function(req, res){
     req.post("change made...")
 });
 
-//create todo post endpoint
-//
-//{
-//    completed: false,
-//    description: "My todo",
-//    date: //
-//}
-//app.post('/todos',function(req, res){
-//    var todo = new Todo(...);
-//    todo.save(function (err, todo) {
-//        if (err) {
-//            alert("YOU HAVE AN POST ERROR!")
-//        } else {
-//            console.log("post to db successful.")
-//        }
-//    });
-//});
-//
-////list all todos
-//app.get('/todos', function(req, res){
-//    Todo.find(function (err, todos) {
-//        if (err) {
-//            //return an error response
-//        } else {
-//            //return a success response
-//        }
-//    });
-//});
-//
-////update todos
-//app.put('/todos/:id', function(req, res){
-//    Todo.findByIdAndUpdate(req.params("id"), req.params, function (err, todo) {
-//        if (err) {
-//            //return an error response
-//        } else {
-//            //return a success response
-//        }
-//    });
-//);
-//
-////delete todo
-//app.delete('/todos/:id', function(req, res){
-//    Todo.findByIdAndRemove(req.params("id"), function (err, todo) {
-//        if (err) {
-//            //return an error response
-//        } else {
-//            //return a success response
-//        }
-//    });
-//});
+
+app.get('/getTodos', function(request, response, next){
+    Todo.find({}, function(err, users){
+        response.json(users);
+    });
+});
+
+app.post('/todos', function(request, response, next){
+    //console.log(request.body);
+    Todo.create(request.body, function(err, post){
+        response.send('ok');
+    });
+});
+
+app.post('/deleteTodos', function(request, response){
+    Todo.remove({_id:request.body._id}, function (err,resp) {
+        if (err) {
+            //return an error response
+        } else {
+            //return a success response
+        }
+    });
+    response.sendStatus(200);
+});
+
+//update todo endpoint
+app.post('/updateTodos', function(request, response){
+    //Todo.findById(task._id, function(err, todo)
+    console.log(request.body[1]);
+    response.sendStatus(200);
+});
 
 var server = app.listen(3000, function(){
     var port = server.address().port;
