@@ -11,7 +11,7 @@
 <body>
     <div class="controller" ng-controller="todoController">
         <div class="myInput">
-            <h1>Todo Today</h1>
+            <h1>Todo List</h1>
             <form id="input-todo" ng-submit="addTodo()">
                 <input id="new-todo" size="30" placeholder="Enter a new todo..." ng-model="newTodo" autofocus required>
                 <button type="submit" ng-click="reset()">Add</button><br>
@@ -23,9 +23,17 @@
         <div class="today">
             <h4>TODAY</h4>
             <ul class="tasksToday">
+
+                <!--<ng-repeat="task in todayArray">
+                    //ng-if completed
+                    <span class="doneView" style="color:dimgrey">{{description}}</span>
+                    //else
+                    <button class="doneButton" ng-click="doneToday(task)">&#10004;</button>{{description}}
+                </li>-->
+
                 <li ng-repeat="task in todayArray track by $index"><button class="doneButton" ng-click="doneToday(task)">&#10004;</button><span class="taskView">{{task}}</span><button class="deleteButton" ng-click="deleteTaskToday(task)">X</button></li>
                 <li ng-repeat="done in doneTodayArray track by $index"><span class="doneView" style="color:dimgrey">{{done}}</span></li>
-
+            </ul>
         </div>
         <div class="tomorrow">
             <h4>TOMORROW</h4>

@@ -12,7 +12,8 @@
   "dependencies": {
     "angular": "^1.4.7",
     "bootstrap": "^3.3.5",
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "mongoose": "^4.1.10"
   },
   "devDependencies": {
     "grunt": "^0.4.5",

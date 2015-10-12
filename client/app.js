@@ -12,6 +12,7 @@ app.controller("todoController", ['$scope', '$http', function($scope, $http){
     $scope.doneLaterArray = [];
 
 
+    //add new task to respective list
     $scope.addTodo = function(){
         if($scope.dueDate == "Later") {
             $scope.laterArray.push($scope.newTodo);
@@ -24,36 +25,35 @@ app.controller("todoController", ['$scope', '$http', function($scope, $http){
     };
 
 
+    //delete tasks from respective lists
     $scope.deleteTaskToday = function(task){
-        var index = $scope.todayArray.indexOf(task);
-        $scope.todayArray.splice(index,1);
-        console.log($scope.todayArray);
+            var index = $scope.todayArray.indexOf(task);
+            $scope.todayArray.splice(index,1);
+            console.log($scope.todayArray);
     };
-
     $scope.deleteTaskTomorrow = function(task){
         var index = $scope.tomorrowArray.indexOf(task);
         $scope.tomorrowArray.splice(index,1);
     };
-
     $scope.deleteTaskLater = function(task){
         var index = $scope.laterArray.indexOf(task);
         $scope.laterArray.splice(index,1);
     };
 
+
+    //remove done tasks from respective lists
     $scope.doneToday = function(task){
         var index = $scope.todayArray.indexOf(task);
         $scope.doneTodayArray.push(task);
         $scope.todayArray.splice(index,1);
         console.log($scope.doneTodayArray);
     };
-
     $scope.doneTomorrow = function(task){
         var index = $scope.tomorrowArray.indexOf(task);
         $scope.doneTomorrowArray.push(task);
         $scope.tomorrowArray.splice(index,1);
         console.log($scope.doneTomorrowArray);
     };
-
     $scope.doneLater = function(task){
         var index = $scope.laterArray.indexOf(task);
         $scope.doneLaterArray.push(task);
@@ -61,6 +61,8 @@ app.controller("todoController", ['$scope', '$http', function($scope, $http){
         console.log($scope.doneLaterArray);
     };
 
+
+    //refresh lists by removing done tasks from all lists, tomorrows tasks becomes today's tasks
     $scope.newDay = function(){
         $scope.todayArray = $scope.todayArray.concat($scope.tomorrowArray);
         console.log($scope.todayArray);
